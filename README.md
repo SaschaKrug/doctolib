@@ -4,8 +4,9 @@ This is a tiny library to check regular for new appointments in Doctolib.
 # Quick Start
 1. Clone this project: `git clone https://github.com/SaschaKrug/doctolib.git`
 2. Install Python 3.12
-3. Install python dependencies: `pip install -r requirements.txt`
-4. Install Playwright dependencies `playwright install`
+3. Create a virtal environment: `python3 -m venv venv`
+4. Install python dependencies: `pip install -r requirements.txt`
+5. Install Playwright dependencies `playwright install`
 ---
 1. Go to the Doctolib website (https://doctolib.de).
 2. Find and select the medical practice that corresponds to your needs.
@@ -19,3 +20,4 @@ This is a tiny library to check regular for new appointments in Doctolib.
   - agenda_ids
   - practice_ids
   - telehealth
+9. Run the application: `python3 main.py`

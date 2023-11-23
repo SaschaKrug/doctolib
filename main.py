@@ -15,22 +15,10 @@ visit_motive_ids = "6173632"
 agenda_ids = "911897"
 practice_ids = "305106"
 telehealth = "false"
-days = 8
 
-# System variables
-limit = "15"
-start_date = date.today().strftime("%Y-%m-%d")
-end_date = (date.today() + timedelta(days=days)).strftime("%Y-%m-%d")
-url = (
-    f"https://www.doctolib.de/availabilities.json?"
-    f"visit_motive_ids={visit_motive_ids}&"
-    f"agenda_ids={agenda_ids}&"
-    f"practice_ids={practice_ids}&"
-    f"telehealth={telehealth}&"
-    f"limit={limit}&"
-    f"start_date={start_date}&"
-    f"end_date={end_date}"
-)
+# Optional User Parameters
+days = 8
+minutes = 60
 
 
 class Doctolib(App):
@@ -68,6 +56,21 @@ def check_available_appointments(data):
 
 
 while True:
+    # System parameters
+    limit = "15"
+    start_date = date.today().strftime("%Y-%m-%d")
+    end_date = (date.today() + timedelta(days=days)).strftime("%Y-%m-%d")
+    url = (
+        f"https://www.doctolib.de/availabilities.json?"
+        f"visit_motive_ids={visit_motive_ids}&"
+        f"agenda_ids={agenda_ids}&"
+        f"practice_ids={practice_ids}&"
+        f"telehealth={telehealth}&"
+        f"limit={limit}&"
+        f"start_date={start_date}&"
+        f"end_date={end_date}"
+    )
+
     with sync_playwright() as p:
         browser = p.chromium.launch()
         context = browser.new_context(
@@ -84,4 +87,4 @@ while True:
             Doctolib(available_days).run()
             exit(0)
         print(f"No available appointments found in the next {days} day(s)")
-    sleep(60 * 60)
+    sleep(60 * minutes)

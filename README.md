@@ -2,9 +2,9 @@
 This is a tiny library to check regular for new appointments in Doctolib.
 
 # Quick Start
-1. Clone this project: 'git clone https://github.com/SaschaKrug/doctolib.git'
+1. Clone this project: `git clone https://github.com/SaschaKrug/doctolib.git`
 2. Install Python 3.12
-3. Install python dependencies: 'pip install -r requirements.txt'
+3. Install python dependencies: `pip install -r requirements.txt`
 4. Install Playwright dependencies `playwright install`
 ---
 1. Go to the Doctolib website (https://doctolib.de).
